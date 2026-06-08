@@ -48,18 +48,18 @@ SYSTEM_PROMPT = """你是一位精通跨境电商（Amazon/Shopify）危机公�
 
 def get_or_create_user(user_id: str):
     """查询用户，不存在则创建"""
-    result = supabase.table("users").select("*").eq("user_id", user_id).execute()
+    result = supabase.table("usage").select("*").eq("user_id", user_id).execute()
     if result.data:
         return result.data[0]
     # 新用户，插入记录
     new_user = {"user_id": user_id, "is_premium": False, "free_count_today": 0}
-    supabase.table("users").insert(new_user).execute()
+    supabase.table("usage").insert(new_user).execute()
     return new_user
 
 
 def increment_usage(user_id: str, current_count: int):
     """使用次数 +1"""
-    supabase.table("users").update(
+    supabase.table("usage").update(
         {"free_count_today": current_count + 1}
     ).eq("user_id", user_id).execute()
 
