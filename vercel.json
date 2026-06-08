@@ -1,6 +1,8 @@
 {
-  "rewrites": [
-    { "source": "/api/generate-email", "destination": "/api/generate_email" },
-    { "source": "/api/health", "destination": "/api/health" }
+  "builds": [
+    { "src": "main.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "main.py" }
   ]
 }
