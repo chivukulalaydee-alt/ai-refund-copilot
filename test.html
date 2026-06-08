@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon Product Reviews (Test Page)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #fff;
+      color: #0f1111;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .review {
+      border-bottom: 1px solid #e3e6e6;
+      padding: 20px 0;
+    }
+    .review-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .review-rating {
+      color: #de7921;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .review-text-content {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Customer Reviews</h1>
+
+  <div class="review">
+    <div class="review-rating">★☆☆☆☆ 1.0 out of 5 stars</div>
+    <div class="review-title">Terrible quality - broke on the first day!</div>
+    <div class="review-text-content">
+      I am extremely disappointed with this product. It arrived with visible damage on the packaging, and when I tried to use it for the first time, the handle snapped off completely. This is clearly a manufacturing defect. I expected much better quality for the price I paid. Totally unacceptable and I want a full refund immediately. Do not buy this garbage.
+    </div>
+  </div>
+
+  <div class="review">
+    <div class="review-rating">★★☆☆☆ 2.0 out of 5 stars</div>
+    <div class="review-title">Not as described, very misleading listing</div>
+    <div class="review-text-content">
+      The product looks nothing like the pictures. The color is completely off, the material feels cheap and flimsy, and it's much smaller than advertised. I feel scammed. The seller should be ashamed of this false advertising. Returning this immediately and disputing the charge with my bank if I don't get my money back.
+    </div>
+  </div>
+
+  <!-- 本地测试：直接加载 content script -->
+  <script src="content.js"></script>
+</body>
+</html>

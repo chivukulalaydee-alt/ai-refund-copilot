@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8f9fb;
+      color: #1d1d1f;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a3a6b;
+    }
+
+    .status-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .status-tag.connected {
+      background-color: #e6f4ea;
+      color: #1e7e34;
+    }
+
+    .status-tag.disconnected {
+      background-color: #fdecea;
+      color: #c0392b;
+    }
+
+    .config-section {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .config-section label {
+      display: block;
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .config-section input {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .config-section input:focus {
+      border-color: #1a3a6b;
+    }
+
+    .save-btn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 8px 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #1a3a6b;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .save-btn:hover {
+      background-color: #274d8f;
+    }
+
+    .save-btn:active {
+      transform: scale(0.97);
+    }
+
+    .toast {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-40px);
+      background-color: #1a3a6b;
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>AI Refund Copilot</h1>
+    <span class="status-tag disconnected" id="statusTag">检测中...</span>
+  </div>
+
+  <div class="config-section">
+    <label for="apiUrl">后端 API 地址</label>
+    <input type="text" id="apiUrl" placeholder="http://localhost:8000">
+    <button class="save-btn" id="saveBtn">保存</button>
+  </div>
+
+  <div class="footer">当前版本：v1.0.0 | 状态：已激活</div>
+
+  <div class="toast" id="toast">✅ 保存成功</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
